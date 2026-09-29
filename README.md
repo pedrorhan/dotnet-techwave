@@ -104,6 +104,4 @@ Proje ilk kez çalıştığında (eğer veritabanı boşsa) `SeedDatabase` sın�
     * **Şifre:** `12345678`
 
 ---
-<div align="center">
-  <b>MACYazılım | Tüm Hakları Saklıdır</b>
-</div>
+
