@@ -14,6 +14,13 @@ Bu proje, **ASP.NET Core MVC** mimarisi kullanılarak sıfırdan geliştirilmiş
 *   **HTML, CSS, Bootstrap 5 & FontAwesome** - Modern, minimalist ve responsive (mobil uyumlu) arayüz tasarımı
 
 ## 📦 Kurulum ve Çalıştırma
+
+> ⚠️ **ÇOK ÖNEMLİ BİLGİLENDİRME (DİKKAT!)** ⚠️
+> 
+> Projenin veritabanı dosyası (`store.db`) güvenlik ve en iyi kodlama pratikleri gereği GitHub'a **yüklenmemiştir**. Projeyi bilgisayarınıza indirdiğinizde uygulamanın çalışabilmesi için veritabanı tablolarını (Identity, Ürünler, Sepet vb.) oluşturmanız **zorunludur**.
+> 
+> Projeyi çalıştırabilmek için `dotnet run` komutundan **ÖNCE** veritabanı migration'larını uygulamalısınız. Aksi takdirde `SQLite Error 1: no such table: AspNetRoles` hatası ile karşılaşırsınız!
+
 1. Projeyi bilgisayarınıza klonlayın:
    ```bash
    git clone https://github.com/pedrorhan/dotnet-store.git
@@ -24,7 +31,11 @@ Bu proje, **ASP.NET Core MVC** mimarisi kullanılarak sıfırdan geliştirilmiş
    dotnet restore
    ```
 3. E-posta (SMTP) ve İyzico API anahtarlarınızı yapılandırmak için `appsettings.json` veya `appsettings.Development.json` dosyalarını güncelleyin. *(Not: Github'da güvenlik gereği hassas şifreler yer almamaktadır, kendi key'lerinizi girmelisiniz).*
-4. Projeyi derleyip çalıştırın:
+4. **Veritabanı tablolarını oluşturun (ZORUNLU):**
+   ```bash
+   dotnet ef database update
+   ```
+5. Projeyi derleyip çalıştırın:
    ```bash
    dotnet run
    ```
