@@ -1,0 +1,19 @@
+# Binaries
+[Bb]in/
+[Oo]bj/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# Secrets backup
+secrets.txt.bak
+
+# macOS
+.DS_Store

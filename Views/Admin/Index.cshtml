@@ -1,0 +1,8 @@
+@using dotnet_store.Models.Admin
+@model DashboardViewModel
+@{
+    Layout = "_AdminLayout";
+}
+
+@await Html.PartialAsync("Partials/Admin/_AdminCard", Model)
+@await Html.PartialAsync("Partials/Admin/_NewOrder", Model)

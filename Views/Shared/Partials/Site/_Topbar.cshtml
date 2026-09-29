@@ -1,0 +1,50 @@
+<section class="top-bar">
+    <div class="container">
+        <div class="row gy-3 align-items-center">
+            <div class="col-lg-3 col-md-4 col-12 text-center text-md-start">
+                <a href="/" class="navbar-brand text-decoration-none">
+                    <i class="fa-solid fa-cube text-primary"></i> <span class="fw-bold">TECHWAVE</span>
+                </a>
+            </div>
+
+            <div class="col-lg-6 col-md-4 col-12 order-3 order-md-2">
+                <form asp-controller="Urun" asp-action="List" method="get" class="d-flex justify-content-center w-100">
+                    <div class="input-group input-group-sm border rounded-pill overflow-hidden bg-white" style="max-width: 400px;">
+                        <input name="q" type="text" placeholder="Ürün ara..." class="form-control border-0 shadow-none px-3" value="@ViewData["q"]">
+                        <button type="submit" class="btn btn-white border-0 text-muted pe-3"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 order-2 order-md-3 text-center text-md-end">
+                <div class="d-flex justify-content-center justify-content-md-end gap-2">
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-controller="Admin" asp-action="Index" class="btn btn-light rounded-circle shadow-sm" title="Admin Paneli" target="_blank">
+                                <i class="fa-solid fa-shield-halved text-danger"></i>
+                            </a>
+                        }
+                        <a asp-controller="Account" asp-action="EditUser" class="btn btn-light rounded-circle shadow-sm" title="Hesabım">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                        <a asp-controller="Account" asp-action="LogOut" class="btn btn-light rounded-circle shadow-sm" title="Çıkış Yap">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-light rounded-pill shadow-sm px-3">
+                            Giriş Yap
+                        </a>
+                    }
+
+                    <a asp-controller="Cart" asp-action="Index" class="btn btn-primary rounded-circle shadow-sm position-relative">
+                        <i class="fa fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

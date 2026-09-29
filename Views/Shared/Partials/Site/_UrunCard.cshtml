@@ -1,0 +1,28 @@
+@model Urun
+
+<div class="card h-100">
+    <div class="img-wrap">
+        @if(Model.Anasayfa) {
+            <span class="badge bg-primary text-white"><i class="fa fa-star me-1"></i>Öne Çıkan</span>
+        }
+        <a asp-controller="Urun" asp-action="Details" asp-route-id="@Model.Id">
+            <img src="~/img/@Model.Resim" alt="@Model.UrunAdi">
+        </a>
+    </div>
+
+    <div class="info-wrap d-flex flex-column">
+        <a asp-controller="Urun" asp-action="Details" asp-route-id="@Model.Id" class="title text-truncate">@Model.UrunAdi</a>
+        
+        <div class="price-wrap mt-auto">
+            @Model.fiyat.ToString("C")
+        </div>
+        
+        <form action="/Cart/AddToCart" method="post" class="mt-2 w-100">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="urunId" value="@Model.Id" />
+            <button type="submit" class="btn btn-primary w-100">
+                Sepete Ekle
+            </button>
+        </form>
+    </div>
+</div>

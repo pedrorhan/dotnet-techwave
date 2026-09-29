@@ -1,0 +1,17 @@
+@model List<Kategori>
+<nav class="navbar navbar-expand-lg bg-white border-bottom mb-4">
+    <div class="container">
+        <button type="button" class="navbar-toggler border-0 shadow-none" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav w-100 justify-content-center gap-3">
+                @foreach(var item in Model){
+                    <li class="nav-item">
+                        <a href="/urunler/@item.Url" class="nav-link">@item.KategoriAdi</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
